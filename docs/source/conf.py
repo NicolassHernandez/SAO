@@ -35,7 +35,8 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.napoleon',
     'sphinx_copybutton',
-    'sphinx_togglebutton', 
+    'sphinx_togglebutton',
+    'sphinx.ext.graphviz', 
 
     'nbsphinx',
     'sphinx.ext.mathjax',

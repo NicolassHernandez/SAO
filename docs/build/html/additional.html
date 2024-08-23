@@ -9,6 +9,7 @@
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
 
   
   <!--[if lt IE 9]>
@@ -63,6 +64,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#tagging-a-new-version">Tagging a new version</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="#branches-scheme">Branches scheme</a></li>
 </ul>
 
         </div>
@@ -115,12 +117,45 @@ Changelog uses the following categories to distribute the documentation:</p>
 <span class="o">./</span><span class="n">push_changelog</span><span class="o">.</span><span class="n">sh</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">To</span> <span class="n">remove</span> <span class="n">it</span> <span class="n">make</span> <span class="n">the</span> <span class="n">following</span><span class="p">:</span>
-<span class="n">git</span> <span class="n">tag</span> <span class="o">-</span><span class="n">d</span> <span class="n">v1</span><span class="mf">.0.0</span>
+<p>To remove it make the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">tag</span> <span class="o">-</span><span class="n">d</span> <span class="n">v1</span><span class="mf">.0.0</span>
 <span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="p">:</span><span class="n">refs</span><span class="o">/</span><span class="n">tags</span><span class="o">/</span><span class="n">v1</span><span class="mf">.0.0</span>
 </pre></div>
 </div>
 </section>
+</section>
+<section id="branches-scheme">
+<h1>Branches scheme<a class="headerlink" href="#branches-scheme" title="Link to this heading">¶</a></h1>
+<p>The project is designed in a three diagram, where the main branch is the stable one from which we can
+provide user-versions to test. Below main, we have three type of branches with their respective roles:</p>
+<ol class="arabic simple">
+<li><p>Features: Commits that add new functionality.</p></li>
+<li><p>Fixes: Commits that address bugs.</p></li>
+<li><p>Chores: Commits that are maintenance tasks or refactors.</p></li>
+</ol>
+<p>Each of them, have specialized issues branches that attack specific task to accomplish. They are naimed with an
+issue number and that issue is described in the project management.</p>
+<div class="graphviz"><img src="_images/graphviz-f99c50110304bca82d9f072f094ec88a838c2131.png" alt="digraph {
+    node [shape=circle, style=filled, color=lightblue, fixedsize=false];
+    edge [color=gray, fontcolor=black];
+
+    A [label=&quot;main&quot;];
+
+    B [label=&quot;feat&quot;, shape=box, color=gray];
+    C [label=&quot;fix&quot;, shape=box, color=gray];
+    D [label=&quot;chor&quot;, shape=box, color=gray];
+
+    E [width=1,height=1,label=&quot;issue#2&quot;];
+    F [width=1,height=1,label=&quot;issue#24&quot;];
+    G [width=1,height=1,label=&quot;issue#65&quot;];
+
+    A -&gt; B [ dir=&quot;both&quot;];
+    A -&gt; C [ dir=&quot;both&quot;];
+    A -&gt; D [label=&quot;IC,PR,R requirements&quot;, dir=&quot;both&quot;];
+    B -&gt; E [ dir=&quot;both&quot;];
+    D -&gt; F [ dir=&quot;both&quot;];
+    D -&gt; G [label=&quot;IC requirement&quot;, dir=&quot;both&quot;];
+}" class="graphviz" /></div>
 </section>
 
 
