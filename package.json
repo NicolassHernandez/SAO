@@ -1,0 +1,26 @@
+{
+  "name": "sao",
+  "version": "1.0.0",
+  "description": "AOS =======",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NicolassHernandez/SAO.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NicolassHernandez/SAO/issues"
+  },
+  "homepage": "https://github.com/NicolassHernandez/SAO#readme",
+  "devDependencies": {
+    "auto-changelog": "^2.4.0"
+  }
+}
