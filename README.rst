@@ -29,6 +29,7 @@ Required libraries
    NumPy
    matplotlib
    numba
+   torch
 
 Installation
 ------------

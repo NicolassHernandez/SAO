@@ -31,10 +31,10 @@ Here is an example of Python code:
 
 .. code-block:: python
 
-    def hello_world():
-        print("Hello, World!")
+   def hello_world():
+      print("Hello, World!")
 
-    hello_world()
+   hello_world()
 
 Contents
 ++++++++
@@ -49,8 +49,13 @@ Contents
 .. toctree::
    :maxdepth: 2
    :caption: First steps
-   
 
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Managing the project
+
+   additional
 
 
 Here is a numbered equation:

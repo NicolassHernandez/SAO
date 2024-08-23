@@ -1,0 +1,33 @@
+Changelog 
+=========
+
+Whenever, one can verify the current version:
+
+.. code-block:: python
+
+    git tag
+
+To make a good changelog file, we must make a good commit description.
+Changelog uses the following categories to distribute the documentation:
+
+1. Features: Commits that add new functionality.
+2. Fixes: Commits that address bugs.
+3. Chores: Commits that are maintenance tasks or refactors.
+4. Breaking Changes: Commits that introduce backward-incompatible changes.
+
+Example:
+
+.. code-block:: python
+
+    git commit -m "feat: add user authentication"
+
+Tagging a new version
++++++++++++++++++++++
+
+Tag a new version is done when enough advances were done.
+
+.. code-block:: python
+    
+    git tag v1.1.0
+    git push origin v1.1.0
+    ./push_changelog.sh
