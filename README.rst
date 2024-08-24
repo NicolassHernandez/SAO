@@ -22,7 +22,7 @@ Pip installer allow us to install the project as a library that can be imported 
 
 Documentation
 +++++++++++++
-Full documentation is hosted by  ..`Read the Docs <https://aotools.readthedocs.io/en/v1.0.1/>`_
+Full documentation is hosted by  .. `Read the Docs <https://aotools.readthedocs.io/en/v1.0.1/>`_
 
 Issues and Contributions
 ++++++++++++++++++++++++
