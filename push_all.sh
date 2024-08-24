@@ -21,4 +21,4 @@ git add CHANGELOG.md
 git commit -m "$COMMIT_MESSAGE"
 git push origin main
 
-echo "Successful push_all execution"
+echo "Successful push_all execution!"
