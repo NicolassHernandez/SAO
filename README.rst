@@ -17,7 +17,6 @@ Installing by pip (soon)
 Pip installer allow us to install the project as a library that can be imported in the usual as: import sao. 
 
 .. code-block:: python
-
     pip install sao
 
 Documentation
