@@ -9,6 +9,7 @@ Installing via .yml File
 The project includes an `environment.yml` file that installs all the required dependencies to ensure proper functionality. Use the following command to create a Conda environment:
 
 .. code-block:: bash
+
     conda env create -f environment.yml
 
 Installing via pip (Coming Soon)
@@ -17,7 +18,8 @@ Installing via pip (Coming Soon)
 The pip installer will allow us to install the project as a library that can be imported as follows:
 
 .. code-block:: python
-    import sao
+
+    pip install sao
 
 
 Documentation
