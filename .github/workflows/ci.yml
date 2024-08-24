@@ -28,11 +28,18 @@ jobs:
           shell: bash -l {0}
           run: conda init bash
   
-        - name: Activate Conda environment and run tests
+        - name: Run tests with coverage report
           shell: bash -l {0}
           run: |
             conda activate SAO
-            python ./tests/t1_print.py
+            pytest tests/ --cov=aos --cov-report=term --cov-report=html
 
+        - name: Upload Coverage Report
+          if: always()
+          uses: actions/upload-artifact@v2
+          with:
+            name: coverage-report
+            path: htmlcov/
 
-
+#pytest tests/ --cov=aos --cov-report=term --cov-report=html
+#pytest --cov=your_package_name tests/test_your_module.py
