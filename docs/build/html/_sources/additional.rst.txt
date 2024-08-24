@@ -59,21 +59,17 @@ issue number and that issue is described in the project management.
        node [shape=circle, style=filled, color=lightblue, fixedsize=false];
        edge [color=gray, fontcolor=black];
 
-       A [label="main"];
-       
-       B [label="feat", shape=box, color=gray];
-       C [label="fix", shape=box, color=gray];
-       D [label="chor", shape=box, color=gray];
+       A [label="master"];
+       B [label="main", shape=box, color=gray];
 
-       E [width=1,height=1,label="issue#2"];
-       F [width=1,height=1,label="issue#24"];
-       G [width=1,height=1,label="issue#65"];
+       C [label="fix/issue#3",width=1.5,height=1.5];
+       D [label="chor/issue#45",width=1.5,height=1.5];
+       E [label="feat/issue#13", width=1.5,height=1.5];
 
-       A -> B [ dir="both"];
-       A -> C [ dir="both"];
-       A -> D [label="IC,PR,R requirements", dir="both"];
-       B -> E [ dir="both"];
-       D -> F [ dir="both"];
-       D -> G [label="IC requirement", dir="both"];
+       A -> B [ dir="both",label="IC,PR,R requirements"];
+
+       B -> C [ dir="both"];
+       B -> D [ dir="both"];
+       B -> E [label="IC requirement", dir="both"];
    }
 

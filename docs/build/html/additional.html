@@ -135,26 +135,22 @@ provide user-versions to test. Below main, we have three type of branches with t
 </ol>
 <p>Each of them, have specialized issues branches that attack specific task to accomplish. They are naimed with an
 issue number and that issue is described in the project management.</p>
-<div class="graphviz"><img src="_images/graphviz-f99c50110304bca82d9f072f094ec88a838c2131.png" alt="digraph {
+<div class="graphviz"><img src="_images/graphviz-dd076247d75bcd4d8d6c95ae871f6aa4350e2160.png" alt="digraph {
     node [shape=circle, style=filled, color=lightblue, fixedsize=false];
     edge [color=gray, fontcolor=black];
 
-    A [label=&quot;main&quot;];
+    A [label=&quot;master&quot;];
+    B [label=&quot;main&quot;, shape=box, color=gray];
 
-    B [label=&quot;feat&quot;, shape=box, color=gray];
-    C [label=&quot;fix&quot;, shape=box, color=gray];
-    D [label=&quot;chor&quot;, shape=box, color=gray];
+    C [label=&quot;fix/issue#3&quot;,width=1.5,height=1.5];
+    D [label=&quot;chor/issue#45&quot;,width=1.5,height=1.5];
+    E [label=&quot;feat/issue#13&quot;, width=1.5,height=1.5];
 
-    E [width=1,height=1,label=&quot;issue#2&quot;];
-    F [width=1,height=1,label=&quot;issue#24&quot;];
-    G [width=1,height=1,label=&quot;issue#65&quot;];
+    A -&gt; B [ dir=&quot;both&quot;,label=&quot;IC,PR,R requirements&quot;];
 
-    A -&gt; B [ dir=&quot;both&quot;];
-    A -&gt; C [ dir=&quot;both&quot;];
-    A -&gt; D [label=&quot;IC,PR,R requirements&quot;, dir=&quot;both&quot;];
-    B -&gt; E [ dir=&quot;both&quot;];
-    D -&gt; F [ dir=&quot;both&quot;];
-    D -&gt; G [label=&quot;IC requirement&quot;, dir=&quot;both&quot;];
+    B -&gt; C [ dir=&quot;both&quot;];
+    B -&gt; D [ dir=&quot;both&quot;];
+    B -&gt; E [label=&quot;IC requirement&quot;, dir=&quot;both&quot;];
 }" class="graphviz" /></div>
 </section>
 
