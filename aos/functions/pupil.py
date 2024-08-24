@@ -17,10 +17,10 @@ def pupil(D:float,npx:int,dx:float,shape:str):
     Create a 2D numpy array:
     
     Inputs:
-        D (float)       : diameter of the geometry
-        npx (int)       : number of pixels of a square
-        dx (float)      : pixel size
-        shape (str)     : geometry, which can be {"circ","rect"}
+        D (float)       : diameter of the geometry\n
+        npx (int)       : number of pixels of a square\n
+        dx (float)      : pixel size\n
+        shape (str)     : geometry, which can be {"circ","rect"}\n
 
     Outputs:
         ndarray (float) : the 2D numpy geometry
