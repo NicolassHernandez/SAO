@@ -13,7 +13,7 @@ def cart2pol(x, y): return np.sqrt(x**2 + y**2), np.arctan2(y, x)
 def pol2cart(r,o):  return r*np.cos(o),r*np.sin(o)
 
 def pupil(D:float,npx:int,dx:float,shape:str):
-    '''
+    """
     Create a 2D numpy array:
     
     Inputs:
@@ -24,7 +24,7 @@ def pupil(D:float,npx:int,dx:float,shape:str):
 
     Outputs:
         ndarray (float) : the 2D numpy geometry
-    '''
+    """
     x = np.arange( -(npx-1)/2,(npx-1)/2,1 )* dx
     x,y = np.meshgrid(x,x, indexing='ij')
     r,o = cart2pol(x,y)
