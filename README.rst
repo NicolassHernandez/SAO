@@ -18,12 +18,11 @@ Pip installer allow us to install the project as a library that can be imported 
 
 .. code-block:: python
 
-    pip install aotools
+    pip install sao
 
 Documentation
 +++++++++++++
 Full documentation is hosted by  
-.. `Read the Docs <https://aotools.readthedocs.io/en/v1.0.1/>`_
 
 Issues and Contributions
 ++++++++++++++++++++++++
