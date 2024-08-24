@@ -65,7 +65,7 @@
 <p class="caption" role="heading"><span class="caption-text">Managing the project</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="additional.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="additional.html#branches-scheme">Branches scheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additional.html#branches">Branches</a></li>
 </ul>
 
         </div>
@@ -100,47 +100,25 @@
 </section>
 <dl class="py function">
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">pupil.</span></span><span class="sig-name descname"><span class="pre">circle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">radius</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">circle_centre</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'middle'</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Create a 2-D array: elements equal 1 within a circle and 0 outside.</p>
-<p>The default centre of the coordinate system is in the middle of the array:
-circle_centre=(0,0), origin=”middle”
-This means:
-if size is odd  : the centre is in the middle of the central pixel
-if size is even : centre is in the corner where the central 4 pixels meet</p>
-<p>origin = “corner” is used e.g. by psfAnalysis:radialAvg()</p>
-<p>Examples:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">circle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="n">circle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="n">circle</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="n">circle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="n">circle</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="n">circle</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-  <span class="mi">00000</span>       <span class="mi">00000</span>       <span class="mi">00100</span>       <span class="mi">0000</span>        <span class="mi">0000</span>          <span class="mi">0110</span>
-  <span class="mi">00100</span>       <span class="mi">00000</span>       <span class="mi">01110</span>       <span class="mi">0000</span>        <span class="mi">0110</span>          <span class="mi">1111</span>
-  <span class="mi">01110</span>       <span class="mi">00100</span>       <span class="mi">11111</span>       <span class="mi">0000</span>        <span class="mi">0110</span>          <span class="mi">1111</span>
-  <span class="mi">00100</span>       <span class="mi">00000</span>       <span class="mi">01110</span>       <span class="mi">0000</span>        <span class="mi">0000</span>          <span class="mi">0110</span>
-  <span class="mi">00000</span>       <span class="mi">00000</span>       <span class="mi">00100</span>
+<span class="sig-prename descclassname"><span class="pre">pupil.</span></span><span class="sig-name descname"><span class="pre">cart2pol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
 
-<span class="n">circle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">))</span>   <span class="n">circle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">))</span>
-   <span class="o">.--&gt;+</span>
-   <span class="o">|</span>  <span class="mi">00000</span>               <span class="mi">0000</span>
-   <span class="o">|</span>  <span class="mi">00000</span>               <span class="mi">0010</span>
-  <span class="o">+</span><span class="n">V</span>  <span class="mi">00110</span>               <span class="mi">0111</span>
-      <span class="mi">00110</span>               <span class="mi">0010</span>
-      <span class="mi">00000</span>
-</pre></div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>radius</strong> (<em>float</em>) – radius of the circle</p></li>
-<li><p><strong>size</strong> (<em>int</em>) – size of the 2-D array in which the circle lies</p></li>
-<li><p><strong>circle_centre</strong> (<em>tuple</em>) – coords of the centre of the circle</p></li>
-<li><p><strong>origin</strong> (<em>str</em>) – where is the origin of the coordinate system
-in which circle_centre is given;
-allowed values: {“middle”, “corner”}</p></li>
-</ul>
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pupil.</span></span><span class="sig-name descname"><span class="pre">pol2cart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">o</span></span></em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">pupil.</span></span><span class="sig-name descname"><span class="pre">pupil</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">D</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Create a 2D numpy array:</p>
+<dl class="simple">
+<dt>Inputs:</dt><dd><p>D (float)       : diameter of the geometry
+npx (int)       : number of pixels of a square
+dx (float)      : pixel size
+shape (str)     : geometry, which can be {“circ”,”rect”}</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>the circle array</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>ndarray (float64)</p>
+<dt>Outputs:</dt><dd><p>ndarray (float) : the 2D numpy geometry</p>
 </dd>
 </dl>
 </dd></dl>
