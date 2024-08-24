@@ -1,6 +1,7 @@
 SAO
 =======
-SAO is a joint project that provide plenty of Optics tools that allow to simulate light propagation, atmosphere modelling, within others.
+SAO is a joint project that provide plenty of tools that allow to simulate light propagation, atmosphere modelling, within others.
+This is based on our common usage and new areas we are currently study.
 
 Installing .yml file
 --------------------
