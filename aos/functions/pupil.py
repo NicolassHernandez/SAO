@@ -24,6 +24,9 @@ def pupil(D:float,npx:int,dx:float,shape:str):
 
     Outputs:
         ndarray (float) : the 2D numpy geometry
+
+    Examples: ::
+        pupil = pupil(3,128,3/128,"circ")
     """
     x = np.arange( -(npx-1)/2,(npx-1)/2,1 )* dx
     x,y = np.meshgrid(x,x, indexing='ij')
