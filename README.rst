@@ -13,6 +13,7 @@ The following is the code installation of the file to create a conda environment
     conda env create -f environment.yml
 
 Installing by pip (soon)
+------------------------
 
 Pip installer allow us to install the project as a library that can be imported in the usual as: import sao. 
 
