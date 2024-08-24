@@ -15,12 +15,17 @@ The project includes an `environment.yml` file that installs all the required de
 Installing via pip (Coming Soon)
 -------------------------------
 
-The pip installer will allow us to install the project as a library that can be imported as follows:
+The pip installer will allow us to install the project as a library
 
-.. code-block:: python
+.. code-block:: bash
 
     pip install sao
 
+that then can be imported:
+
+.. code-block:: python
+
+    import sao
 
 Documentation
 +++++++++++++
