@@ -64,7 +64,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#tagging-a-new-version">Tagging a new version</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#branches-scheme">Branches scheme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#branches-scheme">Branches scheme</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#branches-useful-codes">Branches useful codes</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -152,6 +155,49 @@ issue number and that issue is described in the project management.</p>
     B -&gt; D [ dir=&quot;both&quot;];
     B -&gt; E [label=&quot;IC requirement&quot;, dir=&quot;both&quot;];
 }" class="graphviz" /></div>
+<section id="branches-useful-codes">
+<h2>Branches useful codes<a class="headerlink" href="#branches-useful-codes" title="Link to this heading">¶</a></h2>
+<p>List of branches:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">a</span>
+</pre></div>
+</div>
+<p>Creation of a local branch:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">fix</span><span class="o">/</span><span class="n">issue</span>\<span class="c1">#2</span>
+<span class="c1"># pushing a local to create remote branch</span>
+<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">fix</span><span class="o">/</span><span class="n">issue</span>\<span class="c1">#2</span>
+</pre></div>
+</div>
+<p>Deletion of a branch:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># normal</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">d</span> <span class="n">chor</span><span class="o">/</span><span class="n">issue</span>\<span class="c1">#45</span>
+<span class="c1"># forced</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">D</span> <span class="n">chor</span><span class="o">/</span><span class="n">issue</span>\<span class="c1">#45</span>
+<span class="c1"># remote branch</span>
+<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="o">--</span><span class="n">delete</span> <span class="n">chor</span><span class="o">/</span><span class="n">issue</span>\<span class="c1">#45</span>
+</pre></div>
+</div>
+<p>Switch among branches</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">main</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="n">fix</span><span class="o">/</span><span class="n">issue</span>\<span class="c1">#2</span>
+</pre></div>
+</div>
+<p>Merge the content of a branch with another</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">main</span>
+<span class="n">git</span> <span class="n">merge</span> <span class="n">fix</span><span class="o">/</span><span class="n">issue</span>\<span class="c1">#2</span>
+<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">main</span>
+</pre></div>
+</div>
+<p>Fetch remote repository:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">fetch</span> <span class="n">origin</span>
+<span class="n">git</span> <span class="n">log</span> <span class="n">origin</span><span class="o">/</span><span class="n">main</span>
+</pre></div>
+</div>
+<p>Rebase is used to apply te coomits from one branch to another:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">feature</span>
+<span class="n">git</span> <span class="n">rebase</span> <span class="n">main</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 

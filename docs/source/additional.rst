@@ -73,3 +73,59 @@ issue number and that issue is described in the project management.
        B -> E [label="IC requirement", dir="both"];
    }
 
+Branches useful codes
+~~~~~~~~~~~~~~~~~~~~~
+
+List of branches:
+
+.. code-block:: python
+
+    git branch -a
+
+Creation of a local branch:
+
+.. code-block:: python
+
+    git checkout -b fix/issue\#2
+    # pushing a local to create remote branch
+    git push origin fix/issue\#2
+
+Deletion of a branch:
+
+.. code-block:: python
+
+    # normal
+    git checkout -d chor/issue\#45
+    # forced
+    git checkout -D chor/issue\#45 
+    # remote branch
+    git push origin --delete chor/issue\#45
+
+Switch among branches
+
+.. code-block:: python
+
+    git checkout main
+    git checkout fix/issue\#2
+
+Merge the content of a branch with another
+
+.. code-block:: python
+
+    git checkout main
+    git merge fix/issue\#2
+    git push origin main
+
+Fetch remote repository:
+
+.. code-block:: python
+
+    git fetch origin
+    git log origin/main
+
+Rebase is used to apply te coomits from one branch to another:
+
+.. code-block:: python
+
+    git checkout feature
+    git rebase main
