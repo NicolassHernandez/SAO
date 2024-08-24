@@ -86,34 +86,34 @@ Creation of a local branch:
 
 .. code-block:: python
 
-    git checkout -b fix/issue\#2
+    git checkout -b child
     # pushing a local to create remote branch
-    git push origin fix/issue\#2
+    git push origin child
 
 Deletion of a branch:
 
 .. code-block:: python
 
     # normal
-    git checkout -d chor/issue\#45
+    git checkout -d child
     # forced
-    git checkout -D chor/issue\#45 
+    git checkout -D child 
     # remote branch
-    git push origin --delete chor/issue\#45
+    git push origin --delete child
 
 Switch among branches
 
 .. code-block:: python
 
     git checkout main
-    git checkout fix/issue\#2
+    git checkout child
 
 Merge the content of a branch with another
 
 .. code-block:: python
 
     git checkout main
-    git merge fix/issue\#2
+    git merge child
     git push origin main
 
 Fetch remote repository:
@@ -127,5 +127,7 @@ Rebase is used to apply te coomits from one branch to another:
 
 .. code-block:: python
 
-    git checkout feature
+    git checkout master
     git rebase main
+    git push origin master
+
