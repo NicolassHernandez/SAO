@@ -61,11 +61,13 @@
 <p class="caption" role="heading"><span class="caption-text">Managing the project</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#syntax">Syntax</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tagging-a-new-version">Tagging a new version</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#branches-scheme">Branches scheme</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#branches-useful-codes">Branches useful codes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#branches">Branches</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#branch-useful-codes">Branch useful codes</a></li>
 </ul>
 </li>
 </ul>
@@ -96,6 +98,8 @@
              
   <section id="changelog">
 <h1>Changelog<a class="headerlink" href="#changelog" title="Link to this heading">¶</a></h1>
+<section id="syntax">
+<h2>Syntax<a class="headerlink" href="#syntax" title="Link to this heading">¶</a></h2>
 <p>Whenever, one can verify the current version:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">tag</span> <span class="o">--</span><span class="nb">list</span>
 </pre></div>
@@ -112,6 +116,7 @@ Changelog uses the following categories to distribute the documentation:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;feat: add user authentication&quot;</span>
 </pre></div>
 </div>
+</section>
 <section id="tagging-a-new-version">
 <h2>Tagging a new version<a class="headerlink" href="#tagging-a-new-version" title="Link to this heading">¶</a></h2>
 <p>Tag a new version is done when enough advances were done.</p>
@@ -127,8 +132,10 @@ Changelog uses the following categories to distribute the documentation:</p>
 </div>
 </section>
 </section>
-<section id="branches-scheme">
-<h1>Branches scheme<a class="headerlink" href="#branches-scheme" title="Link to this heading">¶</a></h1>
+<section id="branches">
+<h1>Branches<a class="headerlink" href="#branches" title="Link to this heading">¶</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>The project is designed in a three diagram, where the main branch is the stable one from which we can
 provide user-versions to test. Below main, we have three type of branches with their respective roles:</p>
 <ol class="arabic simple">
@@ -155,46 +162,44 @@ issue number and that issue is described in the project management.</p>
     B -&gt; D [ dir=&quot;both&quot;];
     B -&gt; E [label=&quot;IC requirement&quot;, dir=&quot;both&quot;];
 }" class="graphviz" /></div>
-<section id="branches-useful-codes">
-<h2>Branches useful codes<a class="headerlink" href="#branches-useful-codes" title="Link to this heading">¶</a></h2>
-<p>List of branches:</p>
+</section>
+<section id="branch-useful-codes">
+<h2>Branch useful codes<a class="headerlink" href="#branch-useful-codes" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>List of branches:</p></li>
+</ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">a</span>
 </pre></div>
 </div>
-<p>Creation of a local branch:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">fix</span><span class="o">/</span><span class="n">issue</span>\<span class="c1">#2</span>
-<span class="c1"># pushing a local to create remote branch</span>
-<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">fix</span><span class="o">/</span><span class="n">issue</span>\<span class="c1">#2</span>
+<ol class="arabic simple" start="2">
+<li><p>Creation of a local branch:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">child</span>
+<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">child</span> <span class="c1">#pushing a local to create remote branch</span>
 </pre></div>
 </div>
-<p>Deletion of a branch:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># normal</span>
-<span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">d</span> <span class="n">chor</span><span class="o">/</span><span class="n">issue</span>\<span class="c1">#45</span>
-<span class="c1"># forced</span>
-<span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">D</span> <span class="n">chor</span><span class="o">/</span><span class="n">issue</span>\<span class="c1">#45</span>
-<span class="c1"># remote branch</span>
-<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="o">--</span><span class="n">delete</span> <span class="n">chor</span><span class="o">/</span><span class="n">issue</span>\<span class="c1">#45</span>
+<ol class="arabic simple" start="3">
+<li><p>Deletion of a branch:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">d</span> <span class="n">child</span> <span class="c1">#normal</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">D</span> <span class="n">child</span> <span class="c1">#forced</span>
+<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="o">--</span><span class="n">delete</span> <span class="n">child</span> <span class="c1">#remote branch</span>
 </pre></div>
 </div>
-<p>Switch among branches</p>
+<ol class="arabic simple" start="4">
+<li><p>Switch among branches</p></li>
+</ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">main</span>
-<span class="n">git</span> <span class="n">checkout</span> <span class="n">fix</span><span class="o">/</span><span class="n">issue</span>\<span class="c1">#2</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="n">child</span>
 </pre></div>
 </div>
-<p>Merge the content of a branch with another</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">main</span>
-<span class="n">git</span> <span class="n">merge</span> <span class="n">fix</span><span class="o">/</span><span class="n">issue</span>\<span class="c1">#2</span>
-<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">main</span>
-</pre></div>
-</div>
-<p>Fetch remote repository:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">fetch</span> <span class="n">origin</span>
-<span class="n">git</span> <span class="n">log</span> <span class="n">origin</span><span class="o">/</span><span class="n">main</span>
-</pre></div>
-</div>
-<p>Rebase is used to apply te coomits from one branch to another:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">feature</span>
-<span class="n">git</span> <span class="n">rebase</span> <span class="n">main</span>
+<ol class="arabic simple" start="5">
+<li><p>Merge the content of a given branch into another</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">another</span>
+<span class="n">git</span> <span class="n">fetch</span> <span class="n">origin</span>
+<span class="n">git</span> <span class="n">merge</span> <span class="n">given</span>
+<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">another</span>
 </pre></div>
 </div>
 </section>

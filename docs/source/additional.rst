@@ -1,6 +1,8 @@
 Changelog 
 =========
 
+Syntax
+++++++
 Whenever, one can verify the current version:
 
 .. code-block:: python
@@ -22,7 +24,7 @@ Example:
     git commit -m "feat: add user authentication"
 
 Tagging a new version
-~~~~~~~~~~~~~~~~~~~~~
++++++++++++++++++++++
 
 Tag a new version is done when enough advances were done.
 
@@ -40,9 +42,11 @@ To remove it make the following:
     git push origin :refs/tags/v1.0.0
 
 
-Branches scheme
-===============
+Branches
+========
 
+Introduction
+++++++++++++
 The project is designed in a three diagram, where the main branch is the stable one from which we can 
 provide user-versions to test. Below main, we have three type of branches with their respective roles:
 
@@ -73,61 +77,44 @@ issue number and that issue is described in the project management.
        B -> E [label="IC requirement", dir="both"];
    }
 
-Branches useful codes
-~~~~~~~~~~~~~~~~~~~~~
 
-List of branches:
+Branch useful codes
++++++++++++++++++++
+
+1. List of branches:
 
 .. code-block:: python
 
     git branch -a
 
-Creation of a local branch:
+2. Creation of a local branch:
 
 .. code-block:: python
 
     git checkout -b child
-    # pushing a local to create remote branch
-    git push origin child
+    git push origin child #pushing a local to create remote branch
 
-Deletion of a branch:
+3. Deletion of a branch:
 
 .. code-block:: python
 
-    # normal
-    git checkout -d child
-    # forced
-    git checkout -D child 
-    # remote branch
-    git push origin --delete child
+    git checkout -d child #normal
+    git checkout -D child #forced
+    git push origin --delete child #remote branch
 
-Switch among branches
+4. Switch among branches
 
 .. code-block:: python
 
     git checkout main
     git checkout child
 
-Merge the content of a branch with another
+5. Merge the content of a given branch into another
 
 .. code-block:: python
 
-    git checkout main
-    git merge child
-    git push origin main
-
-Fetch remote repository:
-
-.. code-block:: python
-
+    git checkout another
     git fetch origin
-    git log origin/main
-
-Rebase is used to apply te coomits from one branch to another:
-
-.. code-block:: python
-
-    git checkout master
-    git rebase main
-    git push origin master
+    git merge given
+    git push origin another
 
