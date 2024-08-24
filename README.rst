@@ -1,24 +1,24 @@
 SAO
-=======
-SAO is a joint project that provide plenty of tools that allow to simulate light propagation, atmosphere modelling, within others.
-This is based on our common usage and new areas we are currently study.
+===
 
-Installing .yml file
---------------------
+SAO is a joint project that provides a variety of tools to simulate light propagation, atmosphere modeling, and more. It is based on our common usage practices and explores new areas of study.
 
-The project has an environment.yml file that install all the requirements to ensure a correct usage.
-The following is the code installation of the file to create a conda environment:
-
-.. code-block:: python
-    conda env create -f environment.yml
-
-Installing by pip (soon)
+Installing via .yml File
 ------------------------
 
-Pip installer allow us to install the project as a library that can be imported in the usual as: import sao. 
+The project includes an `environment.yml` file that installs all the required dependencies to ensure proper functionality. Use the following command to create a Conda environment:
+
+.. code-block:: bash
+    conda env create -f environment.yml
+
+Installing via pip (Coming Soon)
+-------------------------------
+
+The pip installer will allow us to install the project as a library that can be imported as follows:
 
 .. code-block:: python
-    pip install sao
+    import sao
+
 
 Documentation
 +++++++++++++
