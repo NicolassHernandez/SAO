@@ -118,3 +118,35 @@ Branch useful codes
     git merge given
     git push origin another
 
+
+Begin to work with issues
+=========================
+
+1) Clone the rpeository into your local machine:
+
+.. code-block:: python
+
+    git clone https://github.com/NicolassHernandez/SAO.git
+
+2) Create an issue in github web and associate a local branch which is generated as:
+
+.. code-block:: python
+
+    git fetch origin
+    git checkout 6-create-zernike
+
+The number indicates the #number tag used to link with the issue.
+
+3) After your work in that branch is done, you can merge with main and push it
+
+.. code-block:: python
+
+    git checkout main
+    git merge 6-create-zernike
+    git push origin main
+    git branch -D 6-create-zernike
+
+Your issue must be closed in github web and is automatically passed to clompeted stage.
+
+To finally delete your local branch:
+

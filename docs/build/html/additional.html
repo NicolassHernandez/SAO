@@ -56,6 +56,7 @@
               <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="pupil.html">Telescope Pupils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zernike.html">Zernike Class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poisson_tutorial.html">Poisson Equation Tutorial</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Managing the project</span></p>
@@ -70,6 +71,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#branch-useful-codes">Branch useful codes</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="#begin-to-work-with-issues">Begin to work with issues</a></li>
 </ul>
 
         </div>
@@ -203,6 +205,34 @@ issue number and that issue is described in the project management.</p>
 </pre></div>
 </div>
 </section>
+</section>
+<section id="begin-to-work-with-issues">
+<h1>Begin to work with issues<a class="headerlink" href="#begin-to-work-with-issues" title="Link to this heading">¶</a></h1>
+<ol class="arabic simple">
+<li><p>Clone the rpeository into your local machine:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">NicolassHernandez</span><span class="o">/</span><span class="n">SAO</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Create an issue in github web and associate a local branch which is generated as:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">fetch</span> <span class="n">origin</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="mi">6</span><span class="o">-</span><span class="n">create</span><span class="o">-</span><span class="n">zernike</span>
+</pre></div>
+</div>
+<p>The number indicates the #number tag used to link with the issue.</p>
+<ol class="arabic simple" start="3">
+<li><p>After your work in that branch is done, you can merge with main and push it</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">main</span>
+<span class="n">git</span> <span class="n">merge</span> <span class="mi">6</span><span class="o">-</span><span class="n">create</span><span class="o">-</span><span class="n">zernike</span>
+<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">main</span>
+<span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">D</span> <span class="mi">6</span><span class="o">-</span><span class="n">create</span><span class="o">-</span><span class="n">zernike</span>
+</pre></div>
+</div>
+<p>Your issue must be closed in github web and is automatically passed to clompeted stage.</p>
+<p>To finally delete your local branch:</p>
 </section>
 
 
