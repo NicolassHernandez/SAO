@@ -137,7 +137,8 @@ Begin to work with issues
 
 The number indicates the #number tag used to link with the issue.
 
-3) After your work in that branch is done, you can merge with main and push it
+3) After your work in that branch is done, you can merge with main, push it, and delete the
+branch you used: 
 
 .. code-block:: python
 
@@ -148,5 +149,9 @@ The number indicates the #number tag used to link with the issue.
 
 Your issue must be closed in github web and is automatically passed to clompeted stage.
 
-To finally delete your local branch:
+You can verify the total number of branches either local or remote by
 
+.. code-block:: python
+
+    git branch -D branch_name # local
+    git push origin --delete branch_name # remote

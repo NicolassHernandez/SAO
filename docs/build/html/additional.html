@@ -222,9 +222,8 @@ issue number and that issue is described in the project management.</p>
 </pre></div>
 </div>
 <p>The number indicates the #number tag used to link with the issue.</p>
-<ol class="arabic simple" start="3">
-<li><p>After your work in that branch is done, you can merge with main and push it</p></li>
-</ol>
+<p>3) After your work in that branch is done, you can merge with main, push it, and delete the
+branch you used:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">main</span>
 <span class="n">git</span> <span class="n">merge</span> <span class="mi">6</span><span class="o">-</span><span class="n">create</span><span class="o">-</span><span class="n">zernike</span>
 <span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">main</span>
@@ -232,7 +231,11 @@ issue number and that issue is described in the project management.</p>
 </pre></div>
 </div>
 <p>Your issue must be closed in github web and is automatically passed to clompeted stage.</p>
-<p>To finally delete your local branch:</p>
+<p>You can verify the total number of branches either local or remote by</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">D</span> <span class="n">branch_name</span> <span class="c1"># local</span>
+<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="o">--</span><span class="n">delete</span> <span class="n">branch_name</span> <span class="c1"># remote</span>
+</pre></div>
+</div>
 </section>
 
 
