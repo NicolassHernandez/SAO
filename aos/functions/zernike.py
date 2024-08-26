@@ -1,3 +1,11 @@
+"""
+Zernike
+-------
+
+Functions for the creation of zernike.
+
+"""
+
 def CreateZernikePolynomials(wfs):
     """
     Zernike clas

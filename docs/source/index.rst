@@ -44,6 +44,7 @@ Contents
    :caption: Introduction
 
    pupil
+   zernike
    poisson_tutorial.ipynb
 
 .. toctree::

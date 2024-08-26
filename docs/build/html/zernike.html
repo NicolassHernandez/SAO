@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Telescope Pupils &mdash; Simulated Adaptive Optics 2025 documentation</title>
+  <title>Zernike Class &mdash; Simulated Adaptive Optics 2025 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=649a27d8" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -31,8 +31,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Zernike Class" href="zernike.html" />
-    <link rel="prev" title="Welcome to Adaptive Optics Simulation Documentation!" href="index.html" /> 
+    <link rel="next" title="Poisson Equation Tutorial" href="poisson_tutorial.html" />
+    <link rel="prev" title="Telescope Pupils" href="pupil.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -56,11 +56,11 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Telescope Pupils</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#pupil-maps">Pupil Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pupil.html">Telescope Pupils</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Zernike Class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#zernike">Zernike</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="zernike.html">Zernike Class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poisson_tutorial.html">Poisson Equation Tutorial</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Managing the project</span></p>
@@ -83,9 +83,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Telescope Pupils</li>
+      <li class="breadcrumb-item active">Zernike Class</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/NicolassHernandez/AOS/blob/main/docs/source/pupil.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/NicolassHernandez/AOS/blob/main/docs/source/zernike.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -93,35 +93,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="telescope-pupils">
-<h1>Telescope Pupils<a class="headerlink" href="#telescope-pupils" title="Link to this heading">¶</a></h1>
-<section id="pupil-maps">
-<h2>Pupil Maps<a class="headerlink" href="#pupil-maps" title="Link to this heading">¶</a></h2>
-<p>Functions for the creation of pupil maps and masks.</p>
+  <section id="zernike-class">
+<h1>Zernike Class<a class="headerlink" href="#zernike-class" title="Link to this heading">¶</a></h1>
+<section id="zernike">
+<h2>Zernike<a class="headerlink" href="#zernike" title="Link to this heading">¶</a></h2>
+<p>Functions for the creation of zernike.</p>
 </section>
 <dl class="py function">
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">pupil.</span></span><span class="sig-name descname"><span class="pre">cart2pol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">pupil.</span></span><span class="sig-name descname"><span class="pre">pol2cart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">o</span></span></em><span class="sig-paren">)</span></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">pupil.</span></span><span class="sig-name descname"><span class="pre">pupil</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">D</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>Create a 2D numpy array:</p>
-<dl>
-<dt>Inputs:</dt><dd><p>D (float)       : diameter of the geometry</p>
-<p>npx (int)       : number of pixels of a square</p>
-<p>dx (float)      : pixel size</p>
-<p>shape (str)     : geometry, which can be {“circ”,”rect”}</p>
+<span class="sig-prename descclassname"><span class="pre">zernike.</span></span><span class="sig-name descname"><span class="pre">CreateZernikePolynomials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wfs</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Zernike clas</p>
+<dl class="simple">
+<dt>Input:</dt><dd><p>wfs (class): useful parameters</p>
 </dd>
-<dt>Outputs:</dt><dd><p>ndarray (float) : the 2D numpy geometry</p>
-</dd>
-<dt>Examples: ::</dt><dd><p>pupil = pupil(3,128,3/128,”circ”)</p>
+<dt>Output:</dt><dd><p>nadayy (float): Zernike modes</p>
 </dd>
 </dl>
 </dd></dl>
@@ -132,8 +117,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Adaptive Optics Simulation Documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="zernike.html" class="btn btn-neutral float-right" title="Zernike Class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="pupil.html" class="btn btn-neutral float-left" title="Telescope Pupils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="poisson_tutorial.html" class="btn btn-neutral float-right" title="Poisson Equation Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
