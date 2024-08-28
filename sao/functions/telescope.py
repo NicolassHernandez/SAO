@@ -18,3 +18,5 @@ class Telescope():
         self.pupil = pupil(self.nPx,self.D,self.dxy,"circ",self.offset)
         self.r = R
         self.theta = O 
+    def add_segmented(self):
+        pass
