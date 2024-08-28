@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Telescope Pupils &mdash; Simulated Adaptive Optics 2025 documentation</title>
+  <title>Telescope &mdash; Simulated Adaptive Optics 2025 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=649a27d8" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -31,8 +31,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Zernike Class" href="zernike.html" />
-    <link rel="prev" title="Welcome to Adaptive Optics Simulation Documentation!" href="index.html" /> 
+    <link rel="next" title="Zernike" href="zernike.html" />
+    <link rel="prev" title="Functions" href="_functions.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -56,15 +56,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Telescope Pupils</a></li>
-<li class="toctree-l1"><a class="reference internal" href="zernike.html">Zernike Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_functions.html">Functions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Telescope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zernike.html">Zernike</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poisson_tutorial.html">Poisson Equation Tutorial</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Managing the project</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="additional.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="additional.html#branches">Branches</a></li>
-<li class="toctree-l1"><a class="reference internal" href="additional.html#begin-to-work-with-issues">Begin to work with issues</a></li>
 </ul>
 
         </div>
@@ -81,9 +76,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Telescope Pupils</li>
+      <li class="breadcrumb-item active">Telescope</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/NicolassHernandez/AOS/blob/main/docs/source/pupil.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/NicolassHernandez/AOS/blob/main/docs/source/telescope.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -91,16 +86,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="telescope-pupils">
-<h1>Telescope Pupils<a class="headerlink" href="#telescope-pupils" title="Link to this heading">¶</a></h1>
+  <section id="telescope">
+<h1>Telescope<a class="headerlink" href="#telescope" title="Link to this heading">¶</a></h1>
+<p>Telescope is a basic class in SAO because it provides with the pupil, and can also be linked with atmosphere fot light propagation.</p>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sao.functions.telescope.</span></span><span class="sig-name descname"><span class="pre">Telescope</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nPx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dxy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fov</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'circ'</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Adaptive Optics Simulation Documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="zernike.html" class="btn btn-neutral float-right" title="Zernike Class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="_functions.html" class="btn btn-neutral float-left" title="Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="zernike.html" class="btn btn-neutral float-right" title="Zernike" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

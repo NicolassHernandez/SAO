@@ -43,7 +43,8 @@ Contents
    :maxdepth: 2
    :caption: Introduction
 
-   pupil
+   _functions
+   telescope
    zernike
    poisson_tutorial.ipynb
 
@@ -56,7 +57,7 @@ Contents
    :maxdepth: 2
    :caption: Managing the project
 
-   additional
+
 
 
 Here is a numbered equation:

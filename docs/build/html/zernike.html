@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zernike Class &mdash; Simulated Adaptive Optics 2025 documentation</title>
+  <title>Zernike &mdash; Simulated Adaptive Optics 2025 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=649a27d8" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -32,7 +32,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Poisson Equation Tutorial" href="poisson_tutorial.html" />
-    <link rel="prev" title="Telescope Pupils" href="pupil.html" /> 
+    <link rel="prev" title="Telescope" href="telescope.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -56,15 +56,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="pupil.html">Telescope Pupils</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Zernike Class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="telescope.html">Telescope</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Zernike</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poisson_tutorial.html">Poisson Equation Tutorial</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Managing the project</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="additional.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="additional.html#branches">Branches</a></li>
-<li class="toctree-l1"><a class="reference internal" href="additional.html#begin-to-work-with-issues">Begin to work with issues</a></li>
 </ul>
 
         </div>
@@ -81,7 +76,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Zernike Class</li>
+      <li class="breadcrumb-item active">Zernike</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/NicolassHernandez/AOS/blob/main/docs/source/zernike.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -91,15 +86,82 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="zernike-class">
-<h1>Zernike Class<a class="headerlink" href="#zernike-class" title="Link to this heading">¶</a></h1>
+  <section id="zernike">
+<h1>Zernike<a class="headerlink" href="#zernike" title="Link to this heading">¶</a></h1>
+<p>Zernike class that provide with Zernike generation polynomials.</p>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sao.functions.zernike.</span></span><span class="sig-name descname"><span class="pre">Zernike</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jModes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[2,</span> <span class="pre">3]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">get_zernikes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Zernike generator function</p>
+<dl>
+<dt>Input:</dt><dd><p>n (int): radial order</p>
+<p>m (int): azimuthal order</p>
+</dd>
+<dt>Output:</dt><dd><p>z (np.nadarray): $Z_m^n$ 2D phasemap based on pupil</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">j2nm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">j</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Find the [n,m] radial and azimuthal order, respectively.</p>
+<dl>
+<dt>Input:</dt><dd><p>j (list): Noll index</p>
+</dd>
+<dt>Output:</dt><dd><p>n (): radial order</p>
+<p>m (): azimuthal order</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">nm2j</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Find the [n,m] radial and azimuthal order, respectively.</p>
+<dl>
+<dt>Input:</dt><dd><p>j (list): Noll index</p>
+</dd>
+<dt>Output:</dt><dd><p>n (): radial order</p>
+<p>m (): azimuthal order</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">print_properties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">zrf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span></em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sao.functions.zernike.</span></span><span class="sig-name descname"><span class="pre">dClass</span></span></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">dynamicClass</span></code></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sao.functions.zernike.</span></span><span class="sig-name descname"><span class="pre">fstir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="pupil.html" class="btn btn-neutral float-left" title="Telescope Pupils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="telescope.html" class="btn btn-neutral float-left" title="Telescope" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="poisson_tutorial.html" class="btn btn-neutral float-right" title="Poisson Equation Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

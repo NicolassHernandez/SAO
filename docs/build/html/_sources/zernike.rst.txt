@@ -1,9 +1,9 @@
-Zernike Class
-=============
+Zernike
+=======
 
+Zernike class that provide with Zernike generation polynomials.
 
-
-.. automodule:: zernike
+.. automodule:: sao.functions.zernike
    :members:
    :undoc-members:
    :show-inheritance:
