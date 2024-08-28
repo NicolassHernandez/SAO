@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/NicolassHernandez/SAO/issues"
   },
-  "homepage": "https://github.com/NicolassHernandez/SAO#readme"
+  "homepage": "https://github.com/NicolassHernandez/SAO#readme",
+  "devDependencies": {
+    "auto-changelog": "^2.4.0"
+  }
 }
