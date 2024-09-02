@@ -32,7 +32,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Telescope" href="telescope.html" />
-    <link rel="prev" title="Welcome to Adaptive Optics Simulation Documentation!" href="index.html" /> 
+    <link rel="prev" title="Welcome to Simulated Adaptive Optics Documentation!" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -102,7 +102,26 @@
 
 <dl class="py function">
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">sao.functions._functions.</span></span><span class="sig-name descname"><span class="pre">get_coordinates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nPx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dxy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span></dt>
+<span class="sig-prename descclassname"><span class="pre">sao.functions._functions.</span></span><span class="sig-name descname"><span class="pre">factorial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sao.functions._functions.</span></span><span class="sig-name descname"><span class="pre">ft2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(-2,</span> <span class="pre">-1)</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Discrete Direct Fourier Transform</p>
+<dl>
+<dt>Input:</dt><dd><p>input (input):  2D input field of dim=(b,c,N,M)</p>
+<p>dxy (float):    Grid spacing</p>
+<p>dim (optional): Dimension along FT2 is computed</p>
+</dd>
+<dt>Output:</dt><dd><p>(input):        Output field</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sao.functions._functions.</span></span><span class="sig-name descname"><span class="pre">get_coordinates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nPx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dxy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">0]</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Coordinate function for the creation of grids</p>
 <dl>
 <dt>Input:</dt><dd><p>nPx (list)      : Number of pixels accross each dimension</p>
@@ -118,12 +137,42 @@
 
 <dl class="py function">
 <dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sao.functions._functions.</span></span><span class="sig-name descname"><span class="pre">ift2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(-2,</span> <span class="pre">-1)</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Discrete Inverse Fourier Transform</p>
+<dl>
+<dt>Input:</dt><dd><p>input (input):      2D input field of dim=(b,c,N,M)</p>
+<p>dfxy (float):       Frequency grid spacing</p>
+<p>dim (optional):     Dimension along FT2 is computed</p>
+</dd>
+<dt>Output:</dt><dd><p>(input):            Output field</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sao.functions._functions.</span></span><span class="sig-name descname"><span class="pre">ones_fresnel_integral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wvl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>_summary_</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u1</strong> (<em>_type_</em>) – _description_</p></li>
+<li><p><strong>wvl</strong> (<em>_type_</em>) – _description_</p></li>
+<li><p><strong>d1</strong> (<em>_type_</em>) – _description_</p></li>
+<li><p><strong>z1</strong> (<em>_type_</em>) – _description_</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
 <span class="sig-prename descclassname"><span class="pre">sao.functions._functions.</span></span><span class="sig-name descname"><span class="pre">pol2cart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">o</span></span></em><span class="sig-paren">)</span></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">sao.functions._functions.</span></span><span class="sig-name descname"><span class="pre">pupil</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nPx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dxy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">0]</span></span></em><span class="sig-paren">)</span></dt>
+<span class="sig-prename descclassname"><span class="pre">sao.functions._functions.</span></span><span class="sig-name descname"><span class="pre">pupil</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nPx</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dxy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'circ'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">0]</span></span></em><span class="sig-paren">)</span></dt>
 <dd><p>Create a 2D numpy array:</p>
 <dl>
 <dt>Input:</dt><dd><p>D (float)       : diameter of the geometry</p>
@@ -138,13 +187,52 @@
 <p>pupil = pupil(3,128,3/128,”circ”)</p>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sao.functions._functions.</span></span><span class="sig-name descname"><span class="pre">set_binning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bin_factor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Binning operation function</p>
+<dl>
+<dt>Input:</dt><dd><p>input (array):          Input array to be binned</p>
+<p>bin_factor (int):       Integer factor</p>
+<p>mode (str, optional):   Mode of binning</p>
+</dd>
+<dt>Output:</dt><dd><p>binned (array):         Binned array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py">
+<span class="sig-prename descclassname"><span class="pre">sao.functions._functions.</span></span><span class="sig-name descname"><span class="pre">twos_fresnel_integral</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wvl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z1</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Two-step Fresnel-integral propagation.</p>
+<p>There are four possible geometries depending on the sign of <cite>m</cite>:</p>
+<ol class="arabic simple">
+<li><p>Forward-Forward, Backward-Backward for <cite>m &gt; 0</cite></p></li>
+<li><p>Forward-Backward, Backward-Forward for <cite>m &lt; 0</cite></p></li>
+</ol>
+<p>The ratio <cite>z2a/z1a</cite> equals <cite>+-m</cite>, where <cite>m = dx2 / dx1</cite>.
+The sign of <cite>m</cite> accounts for both negative and positive distances.
+In theory, all values of <cite>m</cite> can be simulated with <cite>+m</cite>.</p>
+<dl>
+<dt>Input:</dt><dd><p>u1 (b,c,N,M):       Input complex wave</p>
+<p>wvl (float):        Wavelength</p>
+<p>d1 (float):         Grid spacing in source plane</p>
+<p>d2 (float):         Desired grid spacing in observation plane</p>
+<p>z1 (float):         Distance between source-observation planes</p>
+</dd>
+<dt>Output:</dt><dd><p>u2 (b,c,N,M):       Observation complex wave</p>
+<p>cor2 (dx2,x2,y2):   Grid spacing, and coordinates at observation</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Adaptive Optics Simulation Documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Simulated Adaptive Optics Documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="telescope.html" class="btn btn-neutral float-right" title="Telescope" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

@@ -130,7 +130,6 @@ def ones_fresnel_integral(u1, wvl, d1, z):
 
 
 def ft2(input, d, dim=(-2,-1)):
-    if len(input.shape) != 4: raise ValueError('Dimension must be (b,c,N,M)')
     """Discrete Direct Fourier Transform
 
     Input:
@@ -141,10 +140,10 @@ def ft2(input, d, dim=(-2,-1)):
     Output:
         (input):        Output field
     """
+    if len(input.shape) != 4: raise ValueError('Dimension must be (b,c,N,M)')
     return torch.fft.fftshift(torch.fft.fft2(torch.fft.fftshift(input), dim=dim)) * d**2
 #
 def ift2(input, df, dim=(-2,-1)):
-    if len(input.shape) != 4: raise ValueError('Dimension must be (b,c,N,M)')
     """Discrete Inverse Fourier Transform
 
     Input:
@@ -155,6 +154,7 @@ def ift2(input, df, dim=(-2,-1)):
     Output:
         (input):            Output field
     """
+    if len(input.shape) != 4: raise ValueError('Dimension must be (b,c,N,M)')
     return torch.fft.ifftshift(torch.fft.ifft2(torch.fft.ifftshift(input), dim=dim))* (input.shape[-1]*df)**2
 #
 def ones_fresnel_integral(u1, wvl, d1, z):
@@ -180,22 +180,29 @@ def ones_fresnel_integral(u1, wvl, d1, z):
     return u2,(d2,x2,y2)
 #
 def twos_fresnel_integral(u1, wvl, d1,d2, z1):
-    """Two step Fresnel-integral propagation\n
-    There are four possible geometries which consider the sign of m:\n
-    1. Forward-Forward, Backward-Backward for m>0
-    2. Forward-Backward, Backward-Forward for m<0
-    (z2a/z1a)=+-m, and m=dx2/dx1\n
-    The sign of m consider both cases with negative-positive distances.
-    In theory, all m can be simulated with +m
+    """
+    Two-step Fresnel-integral propagation.
+
+    There are four possible geometries depending on the sign of `m`:
+    
+    1. Forward-Forward, Backward-Backward for `m > 0`
+    2. Forward-Backward, Backward-Forward for `m < 0`
+
+    The ratio `z2a/z1a` equals `+-m`, where `m = dx2 / dx1`.
+    The sign of `m` accounts for both negative and positive distances.
+    In theory, all values of `m` can be simulated with `+m`.
+
     Input:
-        u1 (b,c,N,M):       Input complex wave
-        wvl (float):        Wavelength
-        d1 (float):         Grid spacing in source plane
-        d2 (float):         Desired grid spacing in observation plane
+        u1 (b,c,N,M):       Input complex wave\n
+        wvl (float):        Wavelength\n
+        d1 (float):         Grid spacing in source plane\n
+        d2 (float):         Desired grid spacing in observation plane\n
         z1 (float):         Distance between source-observation planes
+
     Output:
-        u2 (b,c,N,M):       Observation complex wave
-        cor2 (dx2,x2,y2):   Grid spacing, and coordinates at observation plane
+        u2 (b,c,N,M):       Observation complex wave\n
+        cor2 (dx2,x2,y2):   Grid spacing, and coordinates at observation 
+
     """
     if len(u1.shape) != 4: raise ValueError('Dimension must be (b,c,N,M)')
     m = d2/d1# magnification

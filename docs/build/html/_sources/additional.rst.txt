@@ -102,7 +102,7 @@ Branch useful codes
     git checkout -D child #forced
     git push origin --delete child #remote branch
 
-4. Switch among branches
+4. Switch between branches
 
 .. code-block:: python
 
@@ -143,9 +143,11 @@ branch you used:
 .. code-block:: python
 
     git checkout main
+    git pull origin main# update my local main from remote main
     git merge 6-create-zernike
-    git push origin main
-    git branch -D 6-create-zernike
+    git push origin main# send local main to remote main
+    git branch -D 6-create-zernike# deletion of local branch
+    git push origin --delete 6-create-zernike# deletion of remote branch
 
 Your issue must be closed in github web and is automatically passed to clompeted stage.
 

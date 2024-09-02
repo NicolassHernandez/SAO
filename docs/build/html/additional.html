@@ -55,6 +55,8 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="telescope.html">Telescope</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zernike.html">Zernike</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poisson_tutorial.html">Poisson Equation Tutorial</a></li>
 </ul>
@@ -187,7 +189,7 @@ digraph {
 </pre></div>
 </div>
 <ol class="arabic simple" start="4">
-<li><p>Switch among branches</p></li>
+<li><p>Switch between branches</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">main</span>
 <span class="n">git</span> <span class="n">checkout</span> <span class="n">child</span>
@@ -223,9 +225,11 @@ digraph {
 <p>3) After your work in that branch is done, you can merge with main, push it, and delete the
 branch you used:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">main</span>
+<span class="n">git</span> <span class="n">pull</span> <span class="n">origin</span> <span class="n">main</span><span class="c1"># update my local main from remote main</span>
 <span class="n">git</span> <span class="n">merge</span> <span class="mi">6</span><span class="o">-</span><span class="n">create</span><span class="o">-</span><span class="n">zernike</span>
-<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">main</span>
-<span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">D</span> <span class="mi">6</span><span class="o">-</span><span class="n">create</span><span class="o">-</span><span class="n">zernike</span>
+<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">main</span><span class="c1"># send local main to remote main</span>
+<span class="n">git</span> <span class="n">branch</span> <span class="o">-</span><span class="n">D</span> <span class="mi">6</span><span class="o">-</span><span class="n">create</span><span class="o">-</span><span class="n">zernike</span><span class="c1"># deletion of local branch</span>
+<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="o">--</span><span class="n">delete</span> <span class="mi">6</span><span class="o">-</span><span class="n">create</span><span class="o">-</span><span class="n">zernike</span><span class="c1"># deletion of remote branch</span>
 </pre></div>
 </div>
 <p>Your issue must be closed in github web and is automatically passed to clompeted stage.</p>
