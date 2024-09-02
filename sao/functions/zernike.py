@@ -2,14 +2,13 @@ import numpy as np
 import math as mt
 from scipy.special import factorial
 from sao.functions.telescope import *
+import torch
+import math
 dClass = type('dynamicClass', (), {})
 
-def fstir(n):
-    if n <= 10:
-        return  np.array( mt.factorial(n) )
-    elif n > 10 :# used to not blow up with integer recursion 
-        # stirtling here
-        return  np.round( np.sqrt(2*np.pi*n)*(n/np.e)**n).astype(np.int64)
+
+
+
 
 class Zernike():
     def __init__(self, tel, jModes:list=[2,3], norm:str=''):
@@ -25,45 +24,40 @@ class Zernike():
         super(Zernike,self).__init__()
         # Telescope
         self.tel = dClass()
-        self.tel.nPx = tel.nPx 
+        self.tel.nPx = tel.nPx
         self.tel.dxy = tel.dxy
         self.tel.pupil = tel.pupil
         self.tel.offset = tel.offset
         # generate Zernike modes in form [modes,NM]
         self.jModes = jModes
-        self.zModes = np.zeros((len(self.jModes),self.tel.nPx**2))
-        self.norm_noll = np.zeros((len(self.jModes)))
+        self.norm_noll = torch.zeros((len(self.jModes)))
         self.norm = norm
         # normalized coordinates inside pupil
         self.cor_z = dClass() 
-        x,y,_,_ = get_coordinates(self.tel.nPx, self.tel.dxy, offset=self.tel.offset)
-        self.cor_z.x,self.cor_z.y = x/np.max(x[self.tel.pupil]), y/np.max(y[self.tel.pupil])# normalize inside pupil
+        x,y,_,_ = get_coordinates(self.tel.nPx, self.tel.dxy, offset=[0,0])
+        self.cor_z.x,self.cor_z.y = x/torch.max(x[self.tel.pupil]), y/torch.max(y[self.tel.pupil])# normalize inside pupil
         self.cor_z.r,self.cor_z.theta = cart2pol(self.cor_z.x,self.cor_z.y)
         # NORMALIZATION 
+        self.zModes = torch.zeros((self.tel.nPx**2,len(self.jModes)), dtype=torch.float64)
         for i,mode in enumerate(self.jModes):
             n,m = self.j2nm(mode)# i -> n,m
-            self.zModes[i,:] = self.get_zernikes(n,m).flatten()
-            tmp = self.get_zernikes(n,m)[self.tel.pupil]# considering distribution inside the pupil
-            if self.norm == 'pv':# problem when piston is included
-                if ( np.max(tmp)-np.min(tmp) )!=0:  self.zModes[i,:] /= ( np.max(tmp)-np.min(tmp) )# handle division by zero
-            elif self.norm == 'rms':
-                self.zModes[i,:] /= np.sqrt( np.sum(tmp**2)/np.sum(self.tel.pupil) )
-            elif self.norm == 'pm1':# problem when piston is included
-                if ( np.max(tmp)-np.min(tmp) )!=0:  self.zModes[i,:] = 2*( (self.zModes[i,:]-np.min(tmp))/(np.max(tmp)-np.min(tmp))-0.5 )# handle division by zero
+            self.zModes[:,i] = self.get_zernikes(n,m).flatten()
             #
+        # PRINT CLASS
         self.print_properties()
     #    
-    def j2nm(self, j):
+    def j2nm(self,j):
         """Find the [n,m] radial and azimuthal order, respectively. 
 
         Input:
-            j (list): Noll index
+            j (int): Noll index
             
         Output:
-            n (): radial order\n
-            m (): azimuthal order  
+            n (int): radial order\n
+            m (int): azimuthal order  
         """
-        n = int( ( -1.+np.sqrt( 8*(j-1)+1 ) )/2. )
+        j = torch.tensor(j, dtype=torch.int64)
+        n = int( ( -1.+torch.sqrt( 8*(j-1)+1 ) )/2. )
         p = ( j-( n*(n+1) )/2. )
         k = n%2
         m = int((p+k)/2.)*2 - k
@@ -73,7 +67,7 @@ class Zernike():
             else:
                 s=-1
             m *= s
-        return np.array([n,m])
+        return [n,m]
     #
     def nm2j(self, n,m):
         """Find the [n,m] radial and azimuthal order, respectively. 
@@ -88,7 +82,7 @@ class Zernike():
         pass
 
 
-    def get_zernikes(self, n,m):
+    def get_zernikes(self, n,m, **kwargs):
         """Zernike generator function
 
         Input:
@@ -98,22 +92,32 @@ class Zernike():
         Output:
             z (np.nadarray): $Z_m^n$ 2D phasemap based on pupil
         """
+        norm = kwargs.get('norm',self.norm)
         r,theta = self.cor_z.r,self.cor_z.theta
-        Z = np.zeros((self.tel.nPx,self.tel.nPx))
+        Z = torch.zeros((self.tel.nPx,self.tel.nPx), dtype=torch.float64)
+        n,m = torch.tensor(n),torch.tensor(m)
         if m == 0:
-            Z = np.sqrt( (n+1) )*self.zrf(n,0,r)
+            Z = torch.sqrt( (n+1) )*self.zrf(n,0,r)
         else:
             if m > 0:# j is even
-                Z = np.sqrt(2*(n+1))*self.zrf(n,m,r) * np.cos( m*theta )
+                Z = torch.sqrt(2*(n+1))*self.zrf(n,m,r) * torch.cos( m*theta )
             else:# j is odd
-                m = np.abs(m)
-                Z = np.sqrt(2*(n+1))*self.zrf(n,m,r) * np.sin( m*theta )
-        return self.tel.pupil*Z# forcing distribution inside pupil
+                m = torch.abs(m)
+                Z = torch.sqrt(2*(n+1))*self.zrf(n,m,r) * torch.sin( m*theta )
+        tmp = Z[self.tel.pupil]# considering distribution inside the pupil
+        if norm == 'pv':# problem when piston is included
+            if ( torch.max(tmp)-torch.min(tmp) )!=0:  Z /= ( torch.max(tmp)-torch.min(tmp) )# handle division by zero
+        elif norm == 'rms':
+            Z /= torch.sqrt( torch.sum(tmp**2)/torch.sum(self.tel.pupil) )
+        elif norm == 'pm1':# problem when piston is included
+            if ( torch.max(tmp)-torch.min(tmp) )!=0:  Z = 2*( (Z-torch.min(tmp))/(torch.max(tmp)-torch.min(tmp))-0.5 )# handle division by zero
+        return self.tel.pupil.to(torch.float64)*Z# forcing distribution inside pupil
+    #
     def zrf(self, n,m,r):
-        R = np.zeros_like(r).astype(np.float64)
+        R = torch.zeros_like(r).to(torch.float64)
         for k in range(0, int((n-m)/2)+1):
-            num = (-1)**k * fstir( int(n)-k)
-            den = fstir(k) * fstir( int((n+m)/2)-k ) * fstir( int((n-m)/2)-k )
+            num = (-1)**k * factorial( int(n)-k)
+            den = factorial(k) * factorial( int((n+m)/2)-k ) * factorial( int((n-m)/2)-k )
             R += (num/den) * r**(n-2*k)
         return R
 
