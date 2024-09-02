@@ -104,7 +104,7 @@ def set_binning(input, bin_factor, mode="mean"):
     return binned
 
 
-
+## PROPAGATORS
 
 def ones_fresnel_integral(u1, wvl, d1, z):
     """_summary_

@@ -1,4 +1,4 @@
-Welcome to Adaptive Optics Simulation Documentation!
+Welcome to Simulated Adaptive Optics Documentation!
 ====================================================
 
 Introduction
